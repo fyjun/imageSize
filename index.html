@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+    <TITLE> New Document </TITLE>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <style>
+       img{
+           width: 100%;
+           height: 100%;
+       }
+        #container{
+            position: absolute;
+            top:0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,.3);
+        }
+        #Imgbox{
+            position: absolute;
+            left: 0;
+            bottom:0;
+            top:0;
+            right: 0;
+            margin: auto;
+        }
+    </style>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script type='text/javascript'>
+        var size=0;
+
+        //放大缩小图片
+        function imgToSize(size) {
+            var img = $("#Imgbox");
+            var oWidth=img.width(); //取得图片的实际宽度
+            var oHeight=img.height(); //取得图片的实际高度
+            img.width(oWidth + size);
+            img.height(oHeight + size/oWidth*oHeight);
+        }
+
+// 翻转图片
+        var m=1;
+//        function imgReverse(arg) {
+//            var img = $("#Imgbox");
+//            if (arg == 'h')
+//            {
+//                img.css( {'filter' : 'fliph','-moz-transform': 'matrix('+(-m)+', 0, 0,'+m+', 0, 0)','-webkit-transform': 'matrix('+(-m)+', 0, 0,'+m+', 0, 0)'} );
+//            }else{
+//                img.css( {'filter' : 'flipv','-moz-transform': 'matrix('+m+', 0, 0,'+(-m)+', 0, 0)','-webkit-transform': 'matrix('+m+', 0, 0,'+(-m)+', 0, 0)'} );
+//            }
+//            m=-m;
+//        }
+//        旋转图片
+        var a=1;
+        function imageLeft(ary) {
+            var img = $("#Imgbox");
+
+            if(a>4){
+                a=1
+            }
+            var deg=ary*a+"deg";
+            console.log(deg)
+          img.css("transform",'rotate('+deg+')');
+            a++;
+
+        }
+//        滚轮放大
+        function bigImg(i) {
+            var zoom = parseInt(i.style.zoom,10)||100;
+            zoom += event.wheelDelta / 12;
+            if(zoom > 0 )
+                i.style.zoom=zoom+'%';
+            return false;
+        }
+    </script>
+</HEAD>
+<BODY>
+<div id="container">
+    <div class="close" onclick="closer()">X</div>
+    <div id='Imgbox' style="width: 200px;height: 200px;" onmousewheel="return bigImg(this)" onclick="allScreen()">
+        <img src='images/center.jpg'/>
+    </div>
+    <input type="button" value="放大" onclick="imgToSize(50)" >
+    <input type="button" value="缩小" onclick="imgToSize(-50);">
+    <input type="button" value="向右旋转" onclick="imageLeft('90')">
+    <input type="button" value="向左旋转" onclick="imageLeft('-90')">
+    <!--<input type="button" value="水平翻转" onclick="imgReverse('h');">-->
+    <!--<input type="button" value="垂直翻转" onclick="imgReverse('v');">-->
+</div>
+
+
+</BODY>
+</HTML>
