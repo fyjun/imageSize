@@ -2,7 +2,7 @@
 <HTML>
 <HEAD>
     <TITLE> New Document </TITLE>
-    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <style>
        img{
            width: 100%;
@@ -28,16 +28,16 @@
     <script type='text/javascript'>
         var size=0;
 
-        //放大缩小图片
+        //鏀惧ぇ缂╁皬鍥剧墖
         function imgToSize(size) {
             var img = $("#Imgbox");
-            var oWidth=img.width(); //取得图片的实际宽度
-            var oHeight=img.height(); //取得图片的实际高度
+            var oWidth=img.width(); //鍙栧緱鍥剧墖鐨勫疄闄呭搴�
+            var oHeight=img.height(); //鍙栧緱鍥剧墖鐨勫疄闄呴珮搴�
             img.width(oWidth + size);
             img.height(oHeight + size/oWidth*oHeight);
         }
 
-// 翻转图片
+// 缈昏浆鍥剧墖
         var m=1;
 //        function imgReverse(arg) {
 //            var img = $("#Imgbox");
@@ -49,7 +49,7 @@
 //            }
 //            m=-m;
 //        }
-//        旋转图片
+//        鏃嬭浆鍥剧墖
         var a=1;
         function imageLeft(ary) {
             var img = $("#Imgbox");
@@ -63,7 +63,7 @@
             a++;
 
         }
-//        滚轮放大
+//        婊氳疆鏀惧ぇ
         function bigImg(i) {
             var zoom = parseInt(i.style.zoom,10)||100;
             zoom += event.wheelDelta / 12;
@@ -79,12 +79,12 @@
     <div id='Imgbox' style="width: 200px;height: 200px;" onmousewheel="return bigImg(this)" onclick="allScreen()">
         <img src='images/center.jpg'/>
     </div>
-    <input type="button" value="放大" onclick="imgToSize(50)" >
-    <input type="button" value="缩小" onclick="imgToSize(-50);">
-    <input type="button" value="向右旋转" onclick="imageLeft('90')">
-    <input type="button" value="向左旋转" onclick="imageLeft('-90')">
-    <!--<input type="button" value="水平翻转" onclick="imgReverse('h');">-->
-    <!--<input type="button" value="垂直翻转" onclick="imgReverse('v');">-->
+    <input type="button" value="鏀惧ぇ" onclick="imgToSize(50)" >
+    <input type="button" value="缂╁皬" onclick="imgToSize(-50);">
+    <input type="button" value="鍚戝彸鏃嬭浆" onclick="imageLeft('90')">
+    <input type="button" value="鍚戝乏鏃嬭浆" onclick="imageLeft('-90')">
+    <!--<input type="button" value="姘村钩缈昏浆" onclick="imgReverse('h');">-->
+    <!--<input type="button" value="鍨傜洿缈昏浆" onclick="imgReverse('v');">-->
 </div>
 
 
